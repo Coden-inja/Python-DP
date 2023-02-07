@@ -2,14 +2,14 @@ def fib(n,dp):             #dp is recursion + storing data and using it again an
   if n==0:
     return 0
   elif n==1:
-    return 1:
+    return 1
   elif dp(n)!=-1:
     return dp(n)
   else:
     dp = fib((n-1),dp) + fib((n+1),dp)
     return dp(n)
-dp = [-1]*a                 #a can be any positive number
-print(fi(a,dp))
+dp = [-1]*8                 #a can be any positive number
+print(fib(8,dp))
     
     
   
