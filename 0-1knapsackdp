@@ -1,0 +1,22 @@
+class Solution:
+    
+    #Function to return max value that can be put in knapsack of capacity W.
+    def knapSack(self,W, wt, val, n):
+        dp={}
+        def solve(m,cap):
+            if m==0 or cap==0:
+                return 0
+            elif (m,cap) in dp:
+                return dp[(m,cap)]
+            else:
+                cwt=wt[m-1]
+                cv=val[m-1]
+                if cwt<=cap:
+                    c1 = cv + solve(m-1,cap-cwt)
+                    c2 = solve(m-1,cap)
+                    c = max(c1,c2)
+                else:
+                    c = solve(m-1,cap)
+                dp[(m,cap)]=c
+                return c
+        return solve(n,W)   
